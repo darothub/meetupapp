@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MeetUpApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">Register</string>
+    <string name="fullName">Full Names</string>
+    <string name="phone">Phone Number</string>
+    <string name="pin">Pin</string>
+    <string name="terms"><![CDATA[I agree to terms & conditions]]></string>
+    <string name="repeatPin">Repeat Pin</string>
 </resources>
