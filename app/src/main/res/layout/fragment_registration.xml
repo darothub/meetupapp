@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.RegistrationFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="25dp">
+
+        <ImageView
+            android:id="@+id/abstractImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/abstract_shape" />
+
+        <ImageView
+            android:id="@+id/meetupImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:scaleType="center"
+            app:srcCompat="@drawable/logobaselogo" />
+
+        <TextView
+            android:id="@+id/registerTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_below="@id/abstractImage"
+            />
+
+        <LinearLayout
+            android:id="@+id/fullNameVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/registerTitleText"
+            android:layout_marginTop="20dp"
+            android:paddingEnd="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/fullNameText"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:text="@string/fullName"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="normal"
+                 />
+
+            <EditText
+                android:id="@+id/fullNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/state_changer"
+                android:inputType="textAutoComplete"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/phoneVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fullNameVG"
+            android:layout_marginTop="20dp"
+            android:paddingEnd="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/phoneNumberText"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="normal"
+                />
+
+            <EditText
+                android:id="@+id/phoneNumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/state_changer"
+                android:inputType="textAutoComplete"
+                tools:ignore="TextFields" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/pinVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phoneVG"
+            android:layout_marginTop="20dp"
+            android:paddingEnd="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/pinText"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:text="@string/pin"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="normal"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pinEditTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:imeOptions="actionNext"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/pinEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/colorPrimary"
+                    android:background="@drawable/state_changer"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/repeatPinVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pinVG"
+            android:layout_marginTop="20dp"
+            android:paddingEnd="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/reapeatPinText"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:text="@string/repeatPin"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="normal"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/repeatPinEditTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:imeOptions="actionNext"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/repeatPinEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/colorPrimary"
+                    android:background="@drawable/state_changer"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tcVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/repeatPinVG"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/termsAndCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:checked="false"
+                app:buttonTint="@color/colorPrimary"
+                android:layout_marginStart="-7dp"
+
+                android:scaleX="1"
+                android:scaleY="1">
+
+            </androidx.appcompat.widget.AppCompatCheckBox>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorPrimaryDark"
+                android:letterSpacing=".05"
+                android:text="@string/terms"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="20dp"
+            android:layout_height="45dp"
+            android:text="@string/register"
+            android:elevation="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_below="@id/tcVG"
+            style="@style/buttonTextAppearance"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_bckgrnd"
+            android:layout_width="match_parent"
+            />
+
+
+    </RelativeLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>
