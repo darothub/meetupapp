@@ -24,6 +24,7 @@ class RegisterRepository(application: Application):AuthRegisterCall {
         context: Context
     ): LiveData<String> {
         val registerResponse = MutableLiveData<String>()
+        var user:UserData? = null
 
         val url = "https://reqres.in/api/register"
         val params = HashMap<String, String>()
@@ -50,27 +51,21 @@ class RegisterRepository(application: Application):AuthRegisterCall {
                         val message = "You have successfully registered"
 
 
-                        val user = UserData(fullName, email, password)
-                        user.message = message
-                        user.token += token
-                        user.id += id
-                        val userDetails = SharedPrefManager.saveData(context, user, user.email)
+                        user = UserData(fullName, email, password)
+                        user?.message = message
+                        user?.token += token
+                        user?.id += id
+                        val userDetails = SharedPrefManager.saveData(context, user, user?.email)
                         registerResponse.value = userDetails[0]
 
                     }
 
 
                 }catch (e: Exception){
-//                    val sharedPrefs = context.getSharedPreferences("secret", Context.MODE_PRIVATE)!!
-//
-//                    val message = response.getString("message")
-//                    TOKEN += sharedPrefs.getString("TOKEN", "");
-//                    val user = UserData(fullName,phone, pin)
-//                    user.password = password
-//                    user.message = message
-//                    val userDetails = SharedPrefManager.saveData(context, user)
-//                    registerResponse.value = userDetails[0]
-//
+                    user?.message = e.message.toString()
+                    val userDetails = SharedPrefManager.saveData(context, user, user?.email)
+                    registerResponse.value = userDetails[0]
+
 
                 }
             }, Response.ErrorListener { error ->
