@@ -63,6 +63,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 style="@style/editTextStyle"
+                android:nextFocusDown="@id/emailEditText"
                 android:background="@drawable/state_changer"
                 android:inputType="textAutoComplete"
                 />
@@ -92,6 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
+                android:nextFocusDown="@id/pinEditText"
                 android:background="@drawable/state_changer"
                 style="@style/editTextStyle"
                 android:inputType="textEmailAddress"
@@ -139,6 +141,7 @@
                     android:layout_height="40dp"
                     android:inputType="textPassword"
                     style="@style/editTextStyle"
+                    android:nextFocusDown="@id/repeatPinEditText"
                     android:textColorHint="@color/colorPrimary"
                     android:background="@drawable/state_changer"
 
@@ -180,6 +183,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:inputType="textPassword"
+                    android:nextFocusDown="@id/termsAndCondition"
                     style="@style/editTextStyle"
                     android:textColorHint="@color/colorPrimary"
                     android:background="@drawable/state_changer"
@@ -202,6 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:checked="false"
+                android:nextFocusDown="@id/registerBtn"
                 app:buttonTint="@color/colorPrimary"
                 android:layout_marginStart="-7dp"
 

@@ -9,14 +9,13 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.darotapp.meetupapp.helper.SharedPrefManager
 import com.darotapp.meetupapp.helper.VolleyErrorHandler
-import com.darotapp.meetupapp.model.ErrorData
 import com.darotapp.meetupapp.model.UserData
-import com.darotapp.meetupapp.network.AuthRegisterCall
+import com.darotapp.meetupapp.network.AuthRequest
 import com.darotapp.meetupapp.network.VolleySingleton
 import org.json.JSONObject
 import java.lang.Exception
 
-class RegisterRepository(application: Application):AuthRegisterCall {
+class UserRegisterRepository(application: Application):AuthRequest {
     override suspend fun registerUser(
         fullName: String,
         email: String,
@@ -24,7 +23,6 @@ class RegisterRepository(application: Application):AuthRegisterCall {
         context: Context
     ): LiveData<String> {
         val registerResponse = MutableLiveData<String>()
-        var user:UserData? = null
 
         val url = "https://reqres.in/api/register"
         val params = HashMap<String, String>()
@@ -35,15 +33,13 @@ class RegisterRepository(application: Application):AuthRegisterCall {
 
         val jsonObject = JSONObject(params as Map<*, *>)
 
-//                Toast.makeText(context!!.applicationContext, "Data $country", Toast.LENGTH_SHORT).show()
-//                    Log.e("Registration", "Response $jsonObject")
+
         val request = JsonObjectRequest(Request.Method.POST, url, jsonObject,
             Response.Listener { response ->
 
                 try{
-//                                Log.i("Registration", "Response $response")
                     val token = response.getString("token")
-                    val id = response.getInt("id").toString()
+                    val id = response.getInt("id")
 
 
                     if(token.isNotEmpty()){
@@ -51,19 +47,21 @@ class RegisterRepository(application: Application):AuthRegisterCall {
                         val message = "You have successfully registered"
 
 
-                        user = UserData(fullName, email, password)
-                        user?.message = message
-                        user?.token += token
-                        user?.id += id
-                        val userDetails = SharedPrefManager.saveData(context, user, user?.email)
+                        val user = UserData(fullName, email, password)
+                        user.message = message
+                        user.token += token
+                        user.id += "$id"
+                        user.new = true
+                        val userDetails = SharedPrefManager.saveData(context, user, user.email)
                         registerResponse.value = userDetails[0]
 
                     }
 
 
                 }catch (e: Exception){
-                    user?.message = e.message.toString()
-                    val userDetails = SharedPrefManager.saveData(context, user, user?.email)
+                    val user = UserData(fullName, email, password)
+                    user.message = e.message.toString()
+                    val userDetails = SharedPrefManager.saveData(context, user, user.email)
                     registerResponse.value = userDetails[0]
 
 
@@ -73,12 +71,12 @@ class RegisterRepository(application: Application):AuthRegisterCall {
 
                 val errorMessage=  VolleyErrorHandler.instance.erroHandler(error, context)
                 val errorString = SharedPrefManager.getError(context, errorMessage)
-                val user = UserData(fullName, email, password)
+                val userData = UserData(fullName, email, password)
                 if (errorString != null) {
-                    user.message =errorString.error
+                    userData.message =errorString.error
                 }
-                user.error = true
-                val data = SharedPrefManager.saveData(context, user, null)
+                userData.error = true
+                val data = SharedPrefManager.saveData(context, userData, null)
                 registerResponse.value = data[0]
 
 
@@ -91,6 +89,9 @@ class RegisterRepository(application: Application):AuthRegisterCall {
 
         return registerResponse
 
+
     }
 
 }
+
+

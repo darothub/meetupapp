@@ -4,8 +4,12 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-interface AuthRegisterCall {
+interface AuthRequest {
     suspend fun registerUser(fullName:String, email:String, password:String, context: Context): LiveData<String> {
+        val go = MutableLiveData<String>()
+        return go
+    }
+    suspend fun login(email:String, password: String, context: Context):LiveData<String>{
         val go = MutableLiveData<String>()
         return go
     }

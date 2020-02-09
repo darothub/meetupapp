@@ -14,5 +14,6 @@ class UserData(
     var error = false
     var token = ""
     var id =""
+    var new = false
 
 }

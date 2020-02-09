@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.SignInFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="25dp">
+
+        <ImageView
+            android:id="@+id/abstractImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/abstract_shape" />
+
+        <ImageView
+            android:id="@+id/meetupImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:scaleType="center"
+            app:srcCompat="@drawable/logobaselogo" />
+
+        <TextView
+            android:id="@+id/signinTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_below="@id/abstractImage"
+            />
+
+        <TextView
+            android:id="@+id/signinadvise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/advise"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:layout_below="@id/signinTitle"
+            />
+
+        <LinearLayout
+            android:id="@+id/fullNameVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signinadvise"
+            android:layout_marginTop="20dp"
+            android:paddingEnd="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="normal"
+                />
+
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:nextFocusDown="@id/pinEditText"
+                style="@style/editTextStyle"
+                android:background="@drawable/state_changer"
+                android:inputType="textEmailAddress"
+                />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/pinVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fullNameVG"
+            android:layout_marginTop="20dp"
+            android:paddingEnd="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/pinText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pin"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:id="@+id/signinPasswordStandard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wrong_password"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:layout_alignParentEnd="true"
+                android:layout_alignBottom="@id/pinText"
+                android:layout_gravity="end"
+                tools:visibility="visible" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pinEditTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:layout_below="@id/pinText"
+                android:imeOptions="actionNext"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/pinEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:inputType="textPassword"
+                    style="@style/editTextStyle"
+                    android:nextFocusDown="@id/signinBtn"
+                    android:textColorHint="@color/colorPrimary"
+                    android:background="@drawable/state_changer"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/forgotPasswordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot"
+                android:layout_below="@id/pinEditTextField"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/btnVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pinVG"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/signinBtn"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="20dp"
+                android:layout_height="45dp"
+                android:text="@string/signin"
+                android:elevation="25dp"
+                android:layout_marginEnd="25dp"
+                style="@style/buttonTextAppearance"
+                android:background="@drawable/btn_bckgrnd"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+
+                />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loadingSignin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:lottie_rawRes="@raw/loading"
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_gravity="center_horizontal"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btnVG">
+
+            <TextView
+                android:id="@+id/dontHaveAccountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dontHaveAccount"
+                android:layout_marginTop="5dp"
+
+                />
+
+            <TextView
+                android:id="@+id/signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signup"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="5dp"
+
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

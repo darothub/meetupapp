@@ -9,5 +9,20 @@
         android:id="@+id/registrationFragment"
         android:name="com.darotapp.meetupapp.ui.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" />
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/toSignIn"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.darotapp.meetupapp.ui.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <argument
+            android:name="user"
+            app:argType="com.darotapp.meetupapp.model.UserData"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>
