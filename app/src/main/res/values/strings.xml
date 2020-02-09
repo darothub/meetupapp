@@ -10,4 +10,13 @@
     <string name="terms"><![CDATA[I agree to terms & conditions]]></string>
     <string name="repeatPin">Repeat Password</string>
     <string name="passwordstandard">Password be atleast six characters long</string>
+    <string name="hello">Hello</string>
+    <string name="signin">Sign in</string>
+    <string name="forgot">Forgot your password?</string>
+    <string name="dontHaveAccount">Don\'t have an account?</string>
+    <string name="wrong_password">Wrong password, try again</string>
+    <string name="signup">Sign up</string>
+    <string name="advise">Please enter your \ndetails to sign in</string>
+    <string name="signinafter_registration">You have successfully registered \nyour account. You can now sign in</string>
+    <string name="congratulation">Congratulations</string>
 </resources>
