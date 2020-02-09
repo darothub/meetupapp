@@ -5,8 +5,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="register">Register</string>
     <string name="fullName">Full Names</string>
-    <string name="phone">Phone Number</string>
-    <string name="pin">Pin</string>
+    <string name="email">Email</string>
+    <string name="pin">Password</string>
     <string name="terms"><![CDATA[I agree to terms & conditions]]></string>
-    <string name="repeatPin">Repeat Pin</string>
+    <string name="repeatPin">Repeat Password</string>
+    <string name="passwordstandard">Password be atleast six characters long</string>
 </resources>
