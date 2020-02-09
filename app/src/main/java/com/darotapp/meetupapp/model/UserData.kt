@@ -12,5 +12,7 @@ class UserData(
     var loggedIn:Boolean = false
     var message = ""
     var error = false
+    var token = ""
+    var id =""
 
 }

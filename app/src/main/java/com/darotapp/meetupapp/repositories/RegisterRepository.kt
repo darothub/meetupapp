@@ -28,7 +28,7 @@ class RegisterRepository(application: Application):AuthRegisterCall {
         val url = "https://reqres.in/api/register"
         val params = HashMap<String, String>()
         params["email"] = email
-        params["pin"] = password
+        params["password"] = password
 
 
 
@@ -42,15 +42,18 @@ class RegisterRepository(application: Application):AuthRegisterCall {
                 try{
 //                                Log.i("Registration", "Response $response")
                     val token = response.getString("token")
+                    val id = response.getInt("id").toString()
 
 
-                    if(token.isNullOrEmpty()){
+                    if(token.isNotEmpty()){
 
                         val message = "You have successfully registered"
 
 
                         val user = UserData(fullName, email, password)
                         user.message = message
+                        user.token += token
+                        user.id += id
                         val userDetails = SharedPrefManager.saveData(context, user, user.email)
                         registerResponse.value = userDetails[0]
 
