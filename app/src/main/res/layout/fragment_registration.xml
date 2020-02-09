@@ -257,6 +257,22 @@
             app:lottie_autoPlay="true" />
 
 
+        <TextView
+            android:id="@+id/copyrightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copyright"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_below="@id/loading"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentBottom="true"
+
+            />
+
+
     </RelativeLayout>
 
 
