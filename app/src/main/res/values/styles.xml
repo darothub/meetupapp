@@ -19,11 +19,19 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:editTextStyle">@style/editTextStyle</item>
 
     </style>
 
     <style name="buttonTextAppearance" parent="TextAppearance.AppCompat.Widget.Button">
         <item name="android:textAllCaps">false</item>
+
+    </style>
+
+    <style name="editTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">13sp</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_color</item>
 
     </style>
 

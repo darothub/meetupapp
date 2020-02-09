@@ -62,6 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
+                style="@style/editTextStyle"
                 android:background="@drawable/state_changer"
                 android:inputType="textAutoComplete"
                 />
@@ -76,10 +77,10 @@
             android:paddingEnd="25dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/phoneNumberText"
+                android:id="@+id/emailText"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
-                android:text="@string/phone"
+                android:text="@string/email"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
@@ -87,12 +88,13 @@
                 />
 
             <EditText
-                android:id="@+id/phoneNumberEditText"
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/state_changer"
-                android:inputType="textAutoComplete"
+                style="@style/editTextStyle"
+                android:inputType="textEmailAddress"
                 tools:ignore="TextFields" />
 
         </LinearLayout>
@@ -115,6 +117,14 @@
                 android:textStyle="normal"
                 />
 
+            <TextView
+                android:id="@+id/passwordStandard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passwordstandard"
+                android:textSize="10sp"
+                android:visibility="gone"
+                tools:visibility="visible" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/pinEditTextField"
                 android:layout_width="match_parent"
@@ -128,6 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:inputType="textPassword"
+                    style="@style/editTextStyle"
                     android:textColorHint="@color/colorPrimary"
                     android:background="@drawable/state_changer"
 
@@ -169,6 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:inputType="textPassword"
+                    style="@style/editTextStyle"
                     android:textColorHint="@color/colorPrimary"
                     android:background="@drawable/state_changer"
 
@@ -210,6 +222,7 @@
 
         </LinearLayout>
 
+
         <Button
             android:id="@+id/registerBtn"
             android:textColor="@color/colorAccent"
@@ -220,10 +233,23 @@
             android:layout_marginEnd="25dp"
             android:layout_below="@id/tcVG"
             style="@style/buttonTextAppearance"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/btn_bckgrnd"
+            android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/registerBtn"
+            app:lottie_rawRes="@raw/loading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
 
 
     </RelativeLayout>
