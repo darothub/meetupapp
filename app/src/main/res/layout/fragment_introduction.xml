@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/introductionColor"
+    tools:context=".ui.IntroductionFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="25dp">
+
+        <ImageView
+            android:id="@+id/abstractImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/abstract_shape" />
+
+        <ImageView
+            android:id="@+id/meetupImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:scaleType="center"
+            app:srcCompat="@drawable/logobaselogo" />
+
+
+        <ImageView
+            android:id="@+id/intrdductionImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:layout_below="@id/abstractImage"
+            android:scaleType="center"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/ic_onboardingimg" />
+
+        <TextView
+            android:id="@+id/connectAdvise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:layout_below="@id/intrdductionImage"
+            android:scaleType="center"
+            android:text="@string/connectText"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/ic_onboardingimg" />
+
+
+        <LinearLayout
+            android:id="@+id/btnVG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/connectAdvise"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/skipBtn"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="20dp"
+                android:layout_height="45dp"
+                android:text="@string/skipText"
+                android:elevation="25dp"
+                android:layout_marginEnd="25dp"
+                style="@style/buttonTextAppearance"
+                android:background="@drawable/btn_bckgrnd"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+
+                />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loadingSignin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:lottie_rawRes="@raw/loading"
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_gravity="center_horizontal"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true" />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/copyrightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copyright"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_below="@id/btnVG"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentBottom="true"
+
+            />
+
+
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

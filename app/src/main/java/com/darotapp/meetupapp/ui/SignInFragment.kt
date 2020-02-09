@@ -112,9 +112,8 @@ class SignInFragment : Fragment() {
                             loadingSignin.visibility = View.GONE
                             signinBtn.visibility = View.VISIBLE
 
-//                            val action = RegistrationFragmentDirections.toSignIn()
-//                            action.user = userObject
-//                            Navigation.findNavController(signinBtn).navigate(action)
+                            val action = SignInFragmentDirections.toIntrdouction()
+                            Navigation.findNavController(signinBtn).navigate(action)
                             Toast.makeText(context, userObject.message, Toast.LENGTH_LONG).show()
                         }
                         else{
