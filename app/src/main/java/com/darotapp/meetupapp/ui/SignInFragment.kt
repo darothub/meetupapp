@@ -3,6 +3,7 @@ package com.darotapp.meetupapp.ui
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -13,6 +14,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -37,6 +39,7 @@ class SignInFragment : Fragment() {
 
     var userData: UserData? = null
     var userViewModel: AuthViewModel? = null
+    var goOutArg:Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,13 +62,42 @@ class SignInFragment : Fragment() {
         //receive safe-arg from register fragment
         arguments?.let {
            userData = SignInFragmentArgs.fromBundle(it).user
+//            goOutArg = SignInFragmentArgs.fromBundle(it).goOut
 //            Toast.makeText(context, "start $user", Toast.LENGTH_SHORT).show()
         }
+
 
         userViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
 
-        if(userData != null){
+
+//        Toast.makeText(context, "activity created", Toast.LENGTH_LONG).show()
+
+
+        val sharedPrefs = context?.getSharedPreferences("secret", Context.MODE_PRIVATE)!!
+        val getData = sharedPrefs.getString("user", "")
+        val userObject = getData?.let { SharedPrefManager.getData(context!!, it) }
+        val backPressed = sharedPrefs.getBoolean("backpressed", false)
+//        Toast.makeText(context, "bfr: $backPressed", Toast.LENGTH_LONG).show()
+
+        if(userObject!!.loggedIn && !backPressed ){
+            findNavController().navigate(R.id.seasonHomeActivity)
+        }
+        else if(userObject.loggedIn && backPressed){
+            this.onDestroy()
+
+            try {
+                sharedPrefs.edit()
+                    .apply {
+                        putBoolean("backpressed", false)
+                        commit()
+                    }
+
+            } catch (e: Exception) {
+            }
+        }
+
+        else if(userData != null){
 
             signinTitle.setText(R.string.congratulation)
             signinadvise.setText(R.string.signinafter_registration)
@@ -151,6 +183,13 @@ class SignInFragment : Fragment() {
         }
 
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+                Toast.makeText(context, "destroy", Toast.LENGTH_LONG).show()
+        activity!!.finish()
     }
 
 
