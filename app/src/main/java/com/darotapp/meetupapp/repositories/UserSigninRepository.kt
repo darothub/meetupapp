@@ -47,6 +47,7 @@ class UserSigninRepository(application: Application):AuthRequest {
 
                         val user = UserData(null, email, password)
                         user.message = message
+                        user.loggedIn = true
                         user.token += token
 //                        user.id += "$id"
                         val userDetails = SharedPrefManager.saveData(context, user, user.email)

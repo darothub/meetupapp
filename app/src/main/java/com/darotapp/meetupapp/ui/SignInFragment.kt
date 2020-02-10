@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -64,6 +65,37 @@ class SignInFragment : Fragment() {
 
         userViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
+
+
+//        Toast.makeText(context, "activity created", Toast.LENGTH_LONG).show()
+
+
+        val sharedPrefs = context?.getSharedPreferences("secret", Context.MODE_PRIVATE)!!
+        val getData = sharedPrefs.getString("user", "")
+        val userObject = getData?.let { SharedPrefManager.getData(context!!, it) }
+        val backPressed = sharedPrefs.getBoolean("backpressed", false)
+//        Toast.makeText(context, "bfr: $backPressed", Toast.LENGTH_LONG).show()
+
+        if(userObject!!.loggedIn && !backPressed ){
+            findNavController().navigate(R.id.seasonHomeActivity)
+        }
+        else if(userObject.loggedIn){
+
+            if(backPressed){
+                try {
+                    sharedPrefs.edit()
+                        .apply {
+                            putBoolean("backpressed", false)
+                            commit()
+                        }
+                    activity!!.finish()
+                } catch (e: Exception) {
+                }
+            }
+
+        }
+
+//        Toast.makeText(context, "after: $backPressed login${userObject.loggedIn}", Toast.LENGTH_LONG).show()
 
         if(userData != null){
 
@@ -153,6 +185,17 @@ class SignInFragment : Fragment() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        val sharedPrefs = context?.getSharedPreferences("secret", Context.MODE_PRIVATE)!!
+        sharedPrefs.edit()
+            .apply {
+                putBoolean("backpressed", false)
+                commit()
+            }
+        val backPressed = sharedPrefs.getBoolean("backpressed", false)
+//        Toast.makeText(context, "destroys $backPressed", Toast.LENGTH_LONG).show()
+    }
 
 
     fun Fragment.hideKeyboard() {

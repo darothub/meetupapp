@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 
 import com.darotapp.meetupapp.R
@@ -43,6 +45,12 @@ class SeasonDress : Fragment() {
         recycler_view.layoutManager = GridLayoutManager(context?.applicationContext, 2)
         recycler_view.setHasFixedSize(true)
         recycler_view.adapter = adapter
+
+        requireActivity().onBackPressedDispatcher.addCallback {
+
+            findNavController().popBackStack(R.id.signInFragment, true)
+            activity!!.finish()
+        }
     }
 
 }
