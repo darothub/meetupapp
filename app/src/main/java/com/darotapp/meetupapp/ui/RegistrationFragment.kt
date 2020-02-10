@@ -13,9 +13,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 
 import com.darotapp.meetupapp.R
 import com.darotapp.meetupapp.helper.FieldValidation
@@ -92,6 +94,16 @@ class RegistrationFragment : Fragment() {
                 return@setOnKeyListener true
             }
             return@setOnKeyListener false
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback {
+
+//            findNavController().popBackStack(R.id.signInFragment, true)
+            activity!!.finish()
+        }
+
+        signIn.setOnClickListener {
+            findNavController().navigate(R.id.signInFragment)
         }
     }
 

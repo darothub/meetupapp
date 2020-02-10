@@ -22,4 +22,25 @@
     <string name="connectText">Connect with your business partners and \nassociates using the new platform</string>
     <string name="skipText">Skip</string>
     <string name="copyright">copyright \u00a9 meetup</string>
+    <string name="title_activity_season_home">SeasonHomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="notification">notification</string>
+    <string name="bell">bell</string>
+    <string name="search">search</string>
+    <string name="title">Meetup</string>
+    <string name="products">products</string>
+    <string name="splash_message">get to meet great \npeople around you</string>
+    <string name="already_have">Already have an account?</string>
 </resources>

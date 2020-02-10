@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="products_lists">
+        <item>Casual dress</item>
+        <item>Corporate dress</item>
+        <item>Owanbe dress</item>
+        <item>Wedding dress</item>
+    </string-array>
+</resources>

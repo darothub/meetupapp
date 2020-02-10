@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/season_nav"
+    app:startDestination="@id/seasonDress">
+
+    <fragment
+        android:id="@+id/seasonDress"
+        android:name="com.darotapp.meetupapp.ui.SeasonDress"
+        android:label="fragment_season_dress"
+        tools:layout="@layout/fragment_season_dress" />
+</navigation>
