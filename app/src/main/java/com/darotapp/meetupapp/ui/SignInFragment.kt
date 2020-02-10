@@ -11,9 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.darotapp.meetupapp.R
 import com.darotapp.meetupapp.helper.FieldValidation
 import com.darotapp.meetupapp.helper.IsEmptyCheck
@@ -47,6 +49,13 @@ class SignInFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        emailEditText.requestFocus()
+
+        signUp.setOnClickListener {
+            val action = SignInFragmentDirections.toRegister()
+            Navigation.findNavController(signinBtn).navigate(action)
+        }
+
         //receive safe-arg from register fragment
         arguments?.let {
            userData = SignInFragmentArgs.fromBundle(it).user
@@ -63,6 +72,19 @@ class SignInFragment : Fragment() {
             emailEditText.setText(userData!!.email)
             pinEditText.setText(userData!!.password)
 
+            requireActivity().onBackPressedDispatcher.addCallback {
+
+                findNavController().popBackStack(R.id.signInFragment, true)
+//            activity!!.finish()
+            }
+
+        }
+        else{
+            requireActivity().onBackPressedDispatcher.addCallback {
+
+
+                activity!!.finish()
+            }
         }
 
         signinBtn.setOnClickListener {

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/registrationFragment">
+    app:startDestination="@id/signInFragment">
 
     <fragment
         android:id="@+id/registrationFragment"
@@ -31,10 +31,22 @@
             app:exitAnim="@anim/fragment_close_exit"
             app:popEnterAnim="@anim/fragment_fade_enter"
             app:popExitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/toRegister"
+            app:destination="@id/registrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/introductionFragment"
         android:name="com.darotapp.meetupapp.ui.IntroductionFragment"
         android:label="fragment_introduction"
-        tools:layout="@layout/fragment_introduction" />
+        tools:layout="@layout/fragment_introduction" >
+        <action
+            android:id="@+id/toSeasonHome"
+            app:destination="@id/seasonHomeActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/seasonHomeActivity"
+        android:name="com.darotapp.meetupapp.ui.SeasonHomeActivity"
+        android:label="activity_season_home"
+        tools:layout="@layout/activity_season_home" />
 </navigation>
